@@ -1,6 +1,6 @@
 ﻿/* ------------------------------------------------------------------------- *
 thZero.NetCore.Library.Factories.DryIoc
-Copyright (C) 2016-2018 thZero.com
+Copyright (C) 2016-2019 thZero.com
 
 <development [at] thzero [dot] com>
 
@@ -19,6 +19,7 @@ limitations under the License.
 
 using System;
 
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -27,9 +28,9 @@ namespace thZero.AspNetCore
     public abstract class AwsStartupExtension : BaseStartupExtension
     {
         #region Protected Methods
-        public override void ConfigureServicesInitializeMvcPost(IServiceCollection services, IConfiguration configuration)
+        public override void ConfigureServicesInitializeMvcPost(IServiceCollection services, IHostingEnvironment env, IConfiguration configuration)
         {
-            base.ConfigureServicesInitializeMvcPost(services, configuration);
+            base.ConfigureServicesInitializeMvcPost(services, env, configuration);
 
             services.AddDefaultAWSOptions(configuration.GetAWSOptions());
         }
