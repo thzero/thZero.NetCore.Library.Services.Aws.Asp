@@ -28,7 +28,7 @@ namespace thZero.AspNetCore
     public abstract class AwsStartupExtension : BaseStartupExtension
     {
         #region Protected Methods
-        public override void ConfigureServicesInitializeMvcPost(IServiceCollection services, IHostingEnvironment env, IConfiguration configuration)
+        public override void ConfigureServicesInitializeMvcPost(IServiceCollection services, IWebHostEnvironment env, IConfiguration configuration)
         {
             base.ConfigureServicesInitializeMvcPost(services, env, configuration);
 
